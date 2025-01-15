@@ -29,3 +29,8 @@ export interface ICreateLink extends ICreateElement {
     href: string
     target?: string
 }
+
+export interface ICleanElement {
+    className?: string
+    id?: string
+}
