@@ -1,6 +1,6 @@
 import { ICreateInput } from '../../types/types'
 
-function createInput(options: ICreateInput): HTMLElement {
+function createInput(options: ICreateInput): HTMLInputElement {
     const {
         classes = [],
         id,

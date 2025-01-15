@@ -1,17 +1,9 @@
 import { ICreateButton } from '../../types/types'
 
-function createButton(options: ICreateButton): HTMLElement {
-    const {
-        tag = 'button',
-        classes = [],
-        id,
-        text,
-        disabled,
-        onClick,
-        parent,
-    } = options
+function createButton(options: ICreateButton): HTMLButtonElement {
+    const { classes = [], id, text, disabled, onClick, parent } = options
 
-    const button = document.createElement(tag)
+    const button = document.createElement('button')
 
     if (classes.length > 0) {
         button.classList.add(...classes)

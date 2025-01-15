@@ -1,7 +1,7 @@
 import { ICreateElement } from '../../types/types'
 
 function createElement(options: ICreateElement): HTMLElement {
-    const { tag, classes = [], id, text, parent } = options
+    const { tag = 'div', classes = [], id, text, parent } = options
 
     const element = document.createElement(tag)
 
