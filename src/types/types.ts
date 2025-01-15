@@ -5,3 +5,8 @@ export interface ICreateElement {
     text?: string
     parent?: HTMLElement
 }
+
+export interface ICreateButton extends ICreateElement {
+    disabled?: boolean
+    onClick?: () => void
+}
