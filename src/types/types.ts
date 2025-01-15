@@ -1,5 +1,5 @@
 export interface ICreateElement {
-    tag: string
+    tag?: string
     classes?: string[]
     id?: string
     text?: string
@@ -23,4 +23,9 @@ export interface ICreateInput {
     addRules?: string
     onInput?: () => void
     parent?: HTMLElement
+}
+
+export interface ICreateLink extends ICreateElement {
+    href: string
+    target?: string
 }
