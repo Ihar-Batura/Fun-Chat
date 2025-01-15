@@ -34,3 +34,9 @@ export interface ICleanElement {
     className?: string
     id?: string
 }
+
+export interface IChangeDisableButton {
+    action: boolean
+    className?: string
+    id?: string
+}
