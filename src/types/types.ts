@@ -40,3 +40,8 @@ export interface IChangeDisableButton {
     className?: string
     id?: string
 }
+
+export interface IFindElementInDOM {
+    className?: string
+    id?: string
+}
