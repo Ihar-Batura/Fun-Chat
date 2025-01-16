@@ -45,3 +45,10 @@ export interface IFindElementInDOM {
     className?: string
     id?: string
 }
+
+export interface IAddOrRemoveElementClass {
+    className?: string
+    id?: string
+    changeClassName: string
+    action: string
+}
