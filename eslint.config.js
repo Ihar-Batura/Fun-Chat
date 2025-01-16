@@ -4,14 +4,14 @@ import tseslint from 'typescript-eslint'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-    { ignores: ['node_modules', 'dist'] },
-    { files: ['**/*.{js,mjs,cjs,ts}'] },
-    { languageOptions: { globals: globals.browser } },
-    pluginJs.configs.recommended,
-    ...tseslint.configs.recommended,
-    {
-        linterOptions: {
-            noInlineConfig: true,
-        },
+  { ignores: ['node_modules', 'dist'] },
+  { files: ['**/*.{js,mjs,cjs,ts}'] },
+  { languageOptions: { globals: globals.browser } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    linterOptions: {
+      noInlineConfig: true,
     },
+  },
 ]
