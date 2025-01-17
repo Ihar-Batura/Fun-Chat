@@ -1,0 +1,20 @@
+@use '../abstracts/variables' as *;
+
+.btn {
+  border-radius: 12px;
+  padding: 5px 16px;
+  border: none;
+  color: $color-logo;
+  background-color: $color-btn-bg;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover {
+    color: $color-btn-hover;
+    background-color: $color-btn-bg-hover;
+  }
+  &:active {
+    color: $color-btn-click;
+    background-color: $color-btn-bg-click;
+  }
+}

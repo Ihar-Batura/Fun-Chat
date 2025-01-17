@@ -1,0 +1,10 @@
+@use '../abstracts/variables' as *;
+
+.main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 110px);
+  padding: 15px 0;
+  background-color: $color-main-bg;
+}

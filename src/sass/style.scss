@@ -3,3 +3,11 @@
 @use 'base/normalize' as *;
 @use 'base/base' as *;
 @use 'base/text' as *;
+
+@use 'layout/header' as *;
+@use 'layout/wrapper' as *;
+@use 'layout/main' as *;
+@use 'layout/footer' as *;
+@use 'layout/about' as *;
+
+@use 'components/buttons' as *;

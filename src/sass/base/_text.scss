@@ -1,39 +1,28 @@
 @use '../abstracts/variables' as *;
 
 h1 {
-    font-size: 12px;
-    line-height: 130%;
-    letter-spacing: 0.05em;
-    color: $color-dark;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  color: $color-logo;
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 150%;
-    letter-spacing: 0.18em;
-    color: $color-static;
-    margin: 12px 0 27px;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  color: $color-logo;
+  text-align: center;
 }
 
 h3 {
-    font-size: 24px;
-    line-height: 152%;
-    letter-spacing: 0.16em;
-}
-
-h4 {
-    font-size: 16px;
-    line-height: 130%;
-    letter-spacing: 0.08em;
-}
-
-h5 {
-    font-size: 12px;
-    line-height: 130%;
-    letter-spacing: 0.05em;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: $color-logo;
+  text-align: center;
 }
 
 p {
-    font-size: 16px;
-    line-height: 148%;
+  font-size: 16px;
+  line-height: 148%;
+  letter-spacing: 0.05em;
 }
