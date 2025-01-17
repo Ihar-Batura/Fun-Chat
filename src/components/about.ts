@@ -29,7 +29,14 @@ function createAbout(): HTMLElement {
   createElement({
     tag: 'p',
     classes: ['about-container__description'],
-    text: 'The application is a client for a chat service that operates over WebSocket. The client application enables users to send messages, view chat history, and also allows senders to delete and edit messages.',
+    text: 'The application is a client for a chat service that operates over WebSocket.',
+    parent: aboutContainer,
+  })
+
+  createElement({
+    tag: 'p',
+    classes: ['about-container__description'],
+    text: 'The client application enables users to send messages, view chat history, and also allows senders to delete and edit messages.',
     parent: aboutContainer,
   })
 
