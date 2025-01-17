@@ -1,4 +1,5 @@
 import createElement from '../functional/create/create_element'
+import createButton from '../functional/create/create_button'
 
 function createAbout(): HTMLElement {
   const aboutContainer = createElement({
@@ -51,6 +52,12 @@ function createAbout(): HTMLElement {
     tag: 'p',
     classes: ['about-container__description'],
     text: `Now you can fun chatting with your friends and don't think that someone else read your messages.`,
+    parent: aboutContainer,
+  })
+
+  createButton({
+    classes: ['btn', 'about-container__btn-return'],
+    text: 'Return Back',
     parent: aboutContainer,
   })
 
