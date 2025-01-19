@@ -1,6 +1,7 @@
 import createElement from '../functional/create/create_element'
 import createInput from '../functional/create/create_input'
 import createButton from '../functional/create/create_button'
+import isValidFormInput from '../functional/form/isValidFormInput'
 
 function createForm(): HTMLElement {
   const form = createElement({ tag: 'form', classes: ['form', 'login-form'] })
@@ -32,13 +33,13 @@ function createForm(): HTMLElement {
     minLength: '3',
     pattern: '[A-Z]{1}[a-z\\-]{2,25}',
     addRules: 'login-rules',
-    //onInput: () => isValidInput('login'),
+    onInput: () => isValidFormInput('login'),
     parent: form,
   })
 
   createElement({
     tag: 'span',
-    classes: ['login-span', 'input-error'],
+    classes: ['login-span'],
     id: 'login-rules',
     text: 'Minimum 3 characters, the first letter is in uppercase',
     parent: form,
@@ -62,13 +63,13 @@ function createForm(): HTMLElement {
     minLength: '6',
     pattern: '[A-Za-z0-9\\-]{6,25}',
     addRules: 'password-rules',
-    //onInput: () => isValidInput('password'),
+    onInput: () => isValidFormInput('password'),
     parent: form,
   })
 
   createElement({
     tag: 'span',
-    classes: ['password-span', 'input-error'],
+    classes: ['password-span'],
     id: 'password-rules',
     text: 'Minimum 6 characters, only letters, numbers and the hyphen (-) symbol',
     parent: form,
