@@ -29,16 +29,37 @@
   &:focus {
     background-color: $color-btn-bg-hover;
   }
+  &:valid {
+    background-image: url(./valid_icon.svg);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+  }
 }
 
-.input-error {
+.input-invalid {
+  &:invalid {
+    background-image: url(./invalid-icon.svg);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+  }
+}
+
+.login-span,
+.password-span {
   font-size: 12px;
   margin-left: 10px;
   user-select: none;
+  color: transparent;
+}
+
+.input-error {
   color: $color-error;
 }
 
 .form-btn {
   display: block;
   margin: 15px auto 10px;
+  width: 120px;
 }
