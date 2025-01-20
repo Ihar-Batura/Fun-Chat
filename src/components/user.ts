@@ -13,7 +13,7 @@ function createUser({
 
   createElement({
     tag: 'div',
-    classes: ['user-indicator', `'user-${userIndicator}'`],
+    classes: ['user-indicator', `user-${userIndicator}`],
     parent: user,
   })
   createElement({
