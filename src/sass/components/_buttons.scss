@@ -18,3 +18,26 @@
     background-color: $color-btn-bg-click;
   }
 }
+
+.btn {
+  &.header-btn {
+    border: 2px solid transparent;
+    &:hover {
+      border: 2px solid $color-logo;
+    }
+  }
+
+  &.about-container__btn-return {
+    border: 2px solid $color-background;
+    &:hover {
+      box-shadow: 0px 0px 15px 1px $color-background;
+    }
+  }
+
+  &.form-btn {
+    border: 2px solid $color-background;
+    &:hover {
+      box-shadow: 0px 0px 15px 1px $color-background;
+    }
+  }
+}
