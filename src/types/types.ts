@@ -52,3 +52,9 @@ export interface IAddOrRemoveElementClass {
   changeClassName: string
   action: string
 }
+
+export interface IUserInfo {
+  userIndicator: string
+  userName: string
+  userMessages: string
+}
