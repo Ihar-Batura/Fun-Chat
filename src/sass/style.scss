@@ -9,5 +9,10 @@
 @use 'layout/main' as *;
 @use 'layout/footer' as *;
 @use 'layout/about' as *;
+@use 'layout/form' as *;
+@use 'layout/home' as *;
 
 @use 'components/buttons' as *;
+@use 'components/user_list_container' as *;
+@use 'components/dialogue_container' as *;
+@use 'components/dialogue_form' as *;
