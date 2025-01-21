@@ -1,5 +1,6 @@
 import createElement from '../functional/create/create_element'
-//import createInput from '../functional/create/create_input'
+import createUserListContainer from './user_list_container'
+import createDialogueContainer from './dialogue_container'
 
 function createHomePage(): HTMLElement {
   const homePageContainer = createElement({
@@ -20,16 +21,9 @@ function createHomePage(): HTMLElement {
     parent: homePageContainer,
   })
 
-  createElement({
-    tag: 'div',
-    classes: ['chat-container__user-list'],
-    parent: chatContainer,
-  })
-  createElement({
-    tag: 'div',
-    classes: ['chat-container__user-dialogue'],
-    parent: chatContainer,
-  })
+  const userListContainer = createUserListContainer()
+  const dialogueContainer = createDialogueContainer()
+  chatContainer.append(userListContainer, dialogueContainer)
 
   return homePageContainer
 }
