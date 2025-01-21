@@ -1,0 +1,35 @@
+@use '../abstracts/variables' as *;
+
+.chat-container__user-dialogue {
+  width: 64%;
+  height: calc(100vh - 180px);
+  padding: 8px;
+  background-color: $color-btn-bg;
+  border-radius: 12px;
+  border: 2px solid $color-background;
+  box-shadow: 0px 0px 10px 2px $color-background;
+  overflow: hidden;
+}
+
+.user-dialogue__user-info {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid $color-background;
+}
+
+.user-online {
+  color: $color-all-right;
+}
+
+.user-offline {
+  color: $color-error;
+}
+
+.user-dialogue__content-container {
+  width: 100%;
+  height: calc(100% - 85px);
+  overflow: hidden;
+  border-bottom: 2px solid $color-background;
+}
