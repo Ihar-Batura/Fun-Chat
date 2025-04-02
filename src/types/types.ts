@@ -28,11 +28,24 @@ export interface CreateButton extends CreateElement {
   onClick?: () => void;
 }
 
-export interface Link {
+export interface CreateLink {
   href: string;
   classes?: string[];
   id?: string;
   text?: string;
   target?: string;
   parent?: HTMLElement;
+}
+
+export interface FormLineElement {
+  parent: HTMLElement;
+  labelText: string;
+  inputId: string;
+  inputType: string;
+  inputTitle: string;
+  inputMinLength: string;
+  pattern: string;
+  inputRules: string;
+  spanId: string;
+  spanText: string;
 }
