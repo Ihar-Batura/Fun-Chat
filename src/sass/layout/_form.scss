@@ -4,54 +4,64 @@
   width: 100%;
   max-width: 500px;
   padding: 30px 20px 20px;
-  background-color: $color-btn-bg;
-  border-radius: 12px;
   border: 3px solid $color-background;
-  box-shadow: 0px 0px 15px 4px $color-background;
+  border-radius: 12px;
+
+  background-color: $color-btn-bg;
+  box-shadow: 0 0 15px 4px $color-background;
 }
 
 .form-label {
   display: inline-block;
+
   width: 100%;
-  font-size: 14px;
   margin: 10px 0 5px;
   padding-left: 10px;
-  color: $color-logo;
+
+  font-size: 14px;
+  color: $color-base;
 }
 
 .form-input {
   width: 100%;
-  font-size: 18px;
   padding: 6px 20px;
-  border-radius: 8px;
-  outline: none;
   border: 2px solid $color-background;
+  border-radius: 8px;
+
+  font-size: 18px;
+
+  outline: none;
+
   &:focus {
     background-color: $color-btn-bg-hover;
   }
+
   &:valid {
-    background-image: url(./valid_icon.svg);
-    background-size: 25px 25px;
+    background-image: url('./valid_icon.svg');
     background-repeat: no-repeat;
     background-position: right 20px center;
+    background-size: 25px 25px;
   }
 }
 
 .input-invalid {
   &:invalid {
-    background-image: url(./invalid-icon.svg);
-    background-size: 25px 25px;
+    background-image: url('./invalid-icon.svg');
     background-repeat: no-repeat;
     background-position: right 20px center;
+    background-size: 25px 25px;
   }
 }
 
 .login-span,
 .password-span {
-  display: inline-block;
-  font-size: 12px;
-  margin-left: 10px;
   user-select: none;
+
+  display: inline-block;
+
+  margin-left: 10px;
+
+  font-size: 12px;
   color: transparent;
 }
 
@@ -61,6 +71,6 @@
 
 .form-btn {
   display: block;
-  margin: 15px auto 10px;
   width: 120px;
+  margin: 15px auto 10px;
 }
