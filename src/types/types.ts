@@ -1,60 +1,38 @@
-export interface ICreateElement {
-  tag?: string
-  classes?: string[]
-  id?: string
-  text?: string
-  parent?: HTMLElement
+export interface CreateElement {
+  tag?: string;
+  classes?: string[];
+  id?: string;
+  text?: string;
+  parent?: HTMLElement;
 }
 
-export interface ICreateButton extends ICreateElement {
-  disabled?: boolean
-  onClick?: () => void
+export interface CreateInput {
+  type: string;
+  classes?: string[];
+  id?: string;
+  value?: string;
+  title?: string;
+  required?: string;
+  placeholder?: string;
+  minLength?: string;
+  min?: string;
+  pattern?: string;
+  addRules?: string;
+  onInput?: () => void;
+  parent?: HTMLElement;
 }
 
-export interface ICreateInput {
-  type: string
-  classes?: string[]
-  id?: string
-  title?: string
-  required?: string
-  placeholder?: string
-  minLength?: string
-  pattern?: string
-  addRules?: string
-  onInput?: () => void
-  parent?: HTMLElement
+export interface CreateButton extends CreateElement {
+  disabled?: boolean;
+  name?: string;
+  onClick?: () => void;
 }
 
-export interface ICreateLink extends ICreateElement {
-  href: string
-  target?: string
-}
-
-export interface ICleanElement {
-  className?: string
-  id?: string
-}
-
-export interface IChangeDisableButton {
-  action: boolean
-  className?: string
-  id?: string
-}
-
-export interface IFindElementInDOM {
-  className?: string
-  id?: string
-}
-
-export interface IAddOrRemoveElementClass {
-  className?: string
-  id?: string
-  changeClassName: string
-  action: string
-}
-
-export interface IUserInfo {
-  userIndicator: string
-  userName: string
-  userMessages: string
+export interface Link {
+  href: string;
+  classes?: string[];
+  id?: string;
+  text?: string;
+  target?: string;
+  parent?: HTMLElement;
 }
