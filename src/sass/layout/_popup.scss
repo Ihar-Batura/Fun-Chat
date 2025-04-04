@@ -26,7 +26,8 @@
   box-shadow: 0 0 15px 4px $color-background;
 }
 
-.popup-text-title {
+.popup-text-title,
+.modal-error-text {
   color: $color-btn-bg;
   text-align: center;
 }
@@ -49,4 +50,36 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+body:has(dialog[open]) {
+  overflow-y: hidden;
+}
+
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  padding: 30px 20px 20px;
+  border: 3px solid $color-background;
+  border-radius: 12px;
+
+  background-color: $color-btn-hover;
+  box-shadow: 0 0 15px 4px $color-background;
+}
+
+dialog[open]::backdrop {
+  opacity: 0.8;
+  background: $color-btn-hover;
+}
+
+.btn-error {
+  display: block;
+  width: 100px;
+  margin: 15px auto 10px;
 }
