@@ -1,0 +1,77 @@
+@use '../abstracts/variables' as *;
+
+.main-page-container {
+  width: 100%;
+}
+
+.main-page-user-name {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.main-page-chat-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.chat-container-users-list {
+  width: calc(35% - 5px);
+}
+
+.chat-container-dialogue-container {
+  width: calc(65% - 5px);
+}
+
+.chat-container-users-list,
+.chat-container-dialogue-container {
+  overflow: hidden;
+
+  height: calc(100dvh - 180px);
+  padding: 8px;
+  border: 2px solid $color-background;
+  border-radius: 12px;
+
+  background-color: $color-btn-bg;
+  box-shadow: 0 0 10px 2px $color-background;
+}
+
+.users-list-search-input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 4px 8px;
+  border: 2px solid $color-background;
+  border-radius: 8px;
+
+  font-size: 16px;
+  color: $color-base;
+
+  outline: none;
+
+  &:focus {
+    background-color: $color-btn-bg-hover;
+  }
+}
+
+.user-list-users-container {
+  overflow-y: auto;
+  max-height: 100%;
+
+  // нужно будет изменить цвет скролла и доделать сам скролл
+}
+
+.user-dialogue-user-info {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+
+  padding-bottom: 5px;
+  border-bottom: 2px solid $color-background;
+}
+
+.user-dialogue-content-container {
+  overflow: hidden;
+  width: 100%;
+  height: calc(100% - 85px);
+  border-bottom: 2px solid $color-background;
+}
