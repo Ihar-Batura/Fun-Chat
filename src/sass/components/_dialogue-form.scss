@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+
+.user-dialogue-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0 5px;
+}
+
+.user-dialogue-form-input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 2px solid $color-background;
+  border-radius: 8px;
+
+  font-size: 16px;
+  color: #344055;
+
+  &:focus {
+    background-color: $color-btn-bg-hover;
+    outline: 1px solid $color-background;
+  }
+}
+
+.user-dialogue-form-button {
+  width: 70px;
+  height: 35px;
+  padding: 2px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+
+  background: url('../send_icon.svg') center center / contain no-repeat;
+
+  &:hover {
+    border: 2px solid $color-background;
+  }
+}
