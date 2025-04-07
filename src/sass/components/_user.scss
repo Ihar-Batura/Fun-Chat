@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as *;
+
+.user {
+  cursor: pointer;
+
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  margin-top: 4px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: $color-btn-bg-hover;
+  }
+}
+
+.user-indicator {
+  width: 8px;
+  height: 8px;
+  border: 1px solid $color-base;
+  border-radius: 50%;
+
+  &.user-online {
+    background-color: $color-all-right;
+  }
+
+  &.user-offline {
+    background-color: $color-error;
+  }
+}
+
+.user-name {
+  width: 100%;
+  color: $color-base;
+}
+
+.user-messages {
+  width: 24px;
+  color: $color-background;
+  text-align: center;
+}
+
+.user-online {
+  color: $color-all-right;
+}
+
+.user-offline {
+  color: $color-error;
+}
