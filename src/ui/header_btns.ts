@@ -16,10 +16,10 @@ function createHeaderBtns(): HTMLElement {
     parent: btnsContainer,
   });
 
-  createButton({
+  const btn: HTMLButtonElement = createButton({
     classes: ['btn', 'header-btn', 'btn-login-logout'],
     text: 'LogIn',
-    onClick: () => clickBtnLoginOrLogout(),
+    onClick: () => clickBtnLoginOrLogout(btn),
     parent: btnsContainer,
   });
 
