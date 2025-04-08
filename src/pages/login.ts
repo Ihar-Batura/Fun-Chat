@@ -5,6 +5,7 @@ import createFooter from '../ui/footer';
 import createElement from '../create/create_element';
 import createForm from '../ui/form';
 import addClassToElement from '../utils/add_class_to_element';
+import sendLoginDataToServer from '../sockets/send_login_data';
 
 function createPageLogin(): void {
   clearBody();
@@ -20,6 +21,11 @@ function createPageLogin(): void {
   });
 
   const loginForm: HTMLElement = createForm();
+  loginForm.addEventListener('submit', (event: SubmitEvent) => {
+    event.preventDefault();
+    sendLoginDataToServer();
+  });
+
   mainWrapper.append(loginForm);
 
   const footer: HTMLElement = createFooter();
