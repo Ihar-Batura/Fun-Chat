@@ -1,5 +1,7 @@
 import createElement from '../create/create_element';
 import createButton from '../create/create_button';
+import clickBtnReturnBack from '../utils/click_btn_return_back';
+import addTextToAbout from './about_text';
 
 function createAbout(): HTMLElement {
   const aboutContainer: HTMLElement = createElement({
@@ -20,44 +22,12 @@ function createAbout(): HTMLElement {
     parent: aboutContainer,
   });
 
-  createElement({
-    tag: 'p',
-    classes: ['about-container-description'],
-    text: 'This project was created for educational purposes.',
-    parent: aboutContainer,
-  });
-
-  createElement({
-    tag: 'p',
-    classes: ['about-container-description'],
-    text: 'The application is a client for a chat service that operates over WebSocket.',
-    parent: aboutContainer,
-  });
-
-  createElement({
-    tag: 'p',
-    classes: ['about-container-description'],
-    text: 'The client application enables users to send messages, view chat history, and also allows senders to delete and edit messages.',
-    parent: aboutContainer,
-  });
-
-  createElement({
-    tag: 'p',
-    classes: ['about-container-description'],
-    text: 'Please note, chat also requires a separate local server to be running for its functionality. This server handles chat features, message storage, and user management.',
-    parent: aboutContainer,
-  });
-
-  createElement({
-    tag: 'p',
-    classes: ['about-container-description'],
-    text: `Now you can fun chatting with your friends and don't think that someone else read your messages.`,
-    parent: aboutContainer,
-  });
+  addTextToAbout(aboutContainer);
 
   createButton({
     classes: ['btn', 'about-container-btn-return'],
     text: 'Return Back',
+    onClick: () => clickBtnReturnBack(),
     parent: aboutContainer,
   });
 
