@@ -1,6 +1,6 @@
-import { Link } from '../types/types';
+import { CreateLink } from '../types/types';
 
-function createLink({ href, classes, id, text, target, parent }: Link): HTMLAnchorElement {
+function createLink({ href, classes, id, text, target, parent }: CreateLink): HTMLAnchorElement {
   const link: HTMLAnchorElement = document.createElement('a');
   link.href = href;
 
