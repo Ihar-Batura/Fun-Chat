@@ -6,6 +6,8 @@ import createFooter from '../ui/footer';
 import createElement from '../create/create_element';
 import addClassToElement from '../utils/add_class_to_element';
 import addRoutePath from '../routes/add_route_path';
+import { user } from '../constants/variables';
+import changeElementText from '../utils/change_element_text';
 
 function createPageAbout(): void {
   clearBody();
@@ -29,6 +31,10 @@ function createPageAbout(): void {
 
   addClassToElement('btn-about', 'active');
   addRoutePath('#/about');
+
+  if (user.isLogined) {
+    changeElementText('btn-login-logout', 'Logout');
+  }
 }
 
 export default createPageAbout;
