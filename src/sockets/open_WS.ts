@@ -1,25 +1,25 @@
 import showPopupNoConnect from '../utils/show_popup_no_connect';
 import deletePopupNoConnect from '../utils/delete_popup_no_connect';
-import { socketState } from '../constants/variables';
+import { socketState, user } from '../constants/variables';
+import sendLoginDataToServer from './send_login_data';
+import processServerResponse from './process_server_response';
 
 function startWebSocket(): void {
   const port: string = '4000';
   const socket: WebSocket = new WebSocket(`ws://localhost:${port}`);
 
   socket.addEventListener('open', () => {
-    console.log('WebSocket open!');
     deletePopupNoConnect();
     socketState.isSocketOpen = true;
     socketState.socket = socket;
+    socket.addEventListener('message', processServerResponse);
+    if (user.isLogined) {
+      sendLoginDataToServer();
+    }
   });
 
-  // socket.addEventListener('error', (event: Event) => {
-  //   console.log('There was an error connecting to the server:', event);
-  // });
-
   socket.addEventListener('close', () => {
-    console.log('The connection to the server was closed:');
-    console.log('Попытка переподключения...');
+    socket.removeEventListener('message', processServerResponse);
     showPopupNoConnect();
     socketState.isSocketOpen = false;
     socketState.socket = null;
