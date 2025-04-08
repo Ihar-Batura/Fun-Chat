@@ -3,41 +3,45 @@ import { FormData } from '../types/types';
 import { socketState } from '../constants/variables';
 import { UserAuthentication } from '../types/types';
 import getUniqueID from '../utils/get_unique_ID';
-import workWithUserAuthenticationResponse from '../utils/work_with_user_authentication_response';
-import { user } from '../constants/variables';
+import { user, socketRequestID } from '../constants/variables';
+import saveUserLoginAndPasswordToSessionStorage from '../storage/save_user_login_and_password_to_SS';
 
-function processServerResponse(event: MessageEvent) {
-  const response: string = event.data;
-
-  workWithUserAuthenticationResponse(response);
-}
+let userLogin: string;
+let userPassword: string;
 
 function sendLoginDataToServer(): void {
-  const loginFormData: FormData = getLoginFormData();
   const requestId: string = getUniqueID();
+  socketRequestID.userAuthentication = requestId;
   const socketIsOpen: boolean = socketState.isSocketOpen;
   const socket: WebSocket | null = socketState.socket;
+  const loginFormData: FormData = getLoginFormData();
 
-  if (loginFormData.login !== null && loginFormData.password !== null) {
-    const userData: UserAuthentication = {
-      id: requestId,
-      type: 'USER_LOGIN',
-      payload: {
-        user: {
-          login: loginFormData.login,
-          password: loginFormData.password,
-        },
+  if (user.isLogined && user.password) {
+    userLogin = user.login;
+    userPassword = user.password;
+  } else if (loginFormData.login !== null && loginFormData.password !== null) {
+    userLogin = loginFormData.login;
+    userPassword = loginFormData.password;
+  }
+
+  const userData: UserAuthentication = {
+    id: requestId,
+    type: 'USER_LOGIN',
+    payload: {
+      user: {
+        login: userLogin,
+        password: userPassword,
       },
-    };
+    },
+  };
 
-    user.login = loginFormData.login; // Save login in variable user
+  user.login = userLogin; // Save login in variable user
+  user.password = userPassword; // Save password in variable
 
-    if (socketIsOpen && socket !== null) {
-      socket.send(JSON.stringify(userData));
+  saveUserLoginAndPasswordToSessionStorage({ login: user.login, password: user.password });
 
-      socket.removeEventListener('message', processServerResponse);
-      socket.addEventListener('message', processServerResponse);
-    }
+  if (socketIsOpen && socket !== null) {
+    socket.send(JSON.stringify(userData));
   }
 }
 
