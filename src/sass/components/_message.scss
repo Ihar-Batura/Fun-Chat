@@ -1,0 +1,77 @@
+@use '../abstracts/variables' as *;
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  width: 70%;
+  padding: 4px 8px;
+  border-radius: 8px;
+
+  background-color: $color-background;
+
+  &.your-message {
+    margin-right: auto;
+  }
+
+  &.contact-message {
+    margin-left: auto;
+  }
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.message-header-name,
+.message-header-time {
+  font-size: 12px;
+  text-align: center;
+}
+
+.message-header-name {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.message-body-text {
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: $color-btn-bg;
+}
+
+.message-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+}
+
+.message-state {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+
+  &.sended {
+    background: url('../sended.svg') center center / contain no-repeat;
+  }
+
+  &.delivered {
+    background: url('../delivered.svg') center center / contain no-repeat;
+  }
+
+  &.read {
+    background: url('../read.svg') center center / contain no-repeat;
+  }
+
+  &.message-btn-edit {
+    background: url('../edit.svg') center center / contain no-repeat;
+  }
+
+  &.message-btn-remove {
+    background: url('../remove.svg') center center / contain no-repeat;
+  }
+}
