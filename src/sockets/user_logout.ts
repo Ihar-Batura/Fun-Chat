@@ -1,13 +1,7 @@
 import { socketState } from '../constants/variables';
-import { UserLogout } from '../types/types';
+import { UserAuthentication } from '../types/types';
 import getUniqueID from '../utils/get_unique_ID';
-import workWithUserLogoutResponse from '../utils/work_with_user_logout_response';
-import { user } from '../constants/variables';
-
-function processServerResponse(event: MessageEvent): void {
-  const response: string = event.data;
-  workWithUserLogoutResponse(response);
-}
+import { user, socketRequestID } from '../constants/variables';
 
 function sendUserLogoutToServer(): void {
   const userLogin: string = user.login;
@@ -15,9 +9,10 @@ function sendUserLogoutToServer(): void {
   const socketIsOpen: boolean = socketState.isSocketOpen;
   const socket: WebSocket | null = socketState.socket;
   const requestId: string = getUniqueID();
+  socketRequestID.userLogout = requestId;
 
   if (userLogin && userPassword !== undefined) {
-    const userData: UserLogout = {
+    const userData: UserAuthentication = {
       id: requestId,
       type: 'USER_LOGOUT',
       payload: {
@@ -30,9 +25,6 @@ function sendUserLogoutToServer(): void {
 
     if (socketIsOpen && socket !== null) {
       socket.send(JSON.stringify(userData));
-
-      socket.removeEventListener('message', processServerResponse);
-      socket.addEventListener('message', processServerResponse);
     }
   }
 }
