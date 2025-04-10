@@ -12,11 +12,11 @@
   background-color: $color-background;
 
   &.your-message {
-    margin-right: auto;
+    margin-left: auto;
   }
 
   &.contact-message {
-    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -39,23 +39,28 @@
 
 .message-body-text {
   width: 100%;
+  min-height: 32px;
   padding: 4px 8px;
   border-radius: 4px;
+
   background-color: $color-btn-bg;
 }
 
 .message-footer {
   display: flex;
-  gap: 12px;
+  gap: 6px;
   justify-content: end;
+  padding: 0 10px;
 }
 
 .message-state {
   width: 20px;
   height: 20px;
+  padding: 0;
+  border: none;
   border-radius: 4px;
 
-  &.sended {
+  &.sent {
     background: url('../sended.svg') center center / contain no-repeat;
   }
 
@@ -63,7 +68,7 @@
     background: url('../delivered.svg') center center / contain no-repeat;
   }
 
-  &.read {
+  &.readed {
     background: url('../read.svg') center center / contain no-repeat;
   }
 
@@ -73,5 +78,10 @@
 
   &.message-btn-remove {
     background: url('../remove.svg') center center / contain no-repeat;
+  }
+
+  &.edited {
+    margin-right: auto;
+    background: url('../edited.svg') center center / contain no-repeat;
   }
 }

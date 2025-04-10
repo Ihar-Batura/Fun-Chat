@@ -4,11 +4,6 @@
   width: 100%;
 }
 
-.main-page-user-name {
-  margin-bottom: 5px;
-  text-align: center;
-}
-
 .main-page-chat-container {
   display: flex;
   gap: 10px;
@@ -27,7 +22,7 @@
 .chat-container-dialogue-container {
   overflow: hidden;
 
-  height: calc(100dvh - 180px);
+  height: calc(100dvh - 140px);
   padding: 8px;
   border: 2px solid $color-background;
   border-radius: 12px;
@@ -71,7 +66,17 @@
 
 .user-dialogue-content-container {
   overflow: hidden;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: calc(100% - 85px);
   border-bottom: 2px solid $color-background;
+
+  &.messages {
+    flex-direction: column;
+    justify-content: end;
+  }
 }

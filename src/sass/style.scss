@@ -5,14 +5,15 @@
 @use 'base/text' as *;
 
 @use 'layout/header' as *;
-@use 'layout/wrapper' as *;
 @use 'layout/main' as *;
-@use 'layout/footer' as *;
-@use 'layout/about' as *;
+@use 'layout/wrapper' as *;
 @use 'layout/form' as *;
-@use 'layout/home' as *;
+@use 'layout/about' as *;
+@use 'layout/footer' as *;
+@use 'layout/popup' as *;
+@use 'layout/main-page' as *;
 
 @use 'components/buttons' as *;
-@use 'components/user_list_container' as *;
-@use 'components/dialogue_container' as *;
-@use 'components/dialogue_form' as *;
+@use 'components/user' as *;
+@use 'components/dialogue-form' as *;
+@use 'components/message' as *;

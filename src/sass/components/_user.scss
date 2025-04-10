@@ -11,7 +11,13 @@
   border-radius: 4px;
 
   &:hover {
-    background-color: $color-btn-bg-hover;
+    @media (hover: hover) {
+      background-color: $color-btn-bg-hover;
+    }
+  }
+
+  &.hide {
+    display: none;
   }
 }
 
@@ -21,11 +27,11 @@
   border: 1px solid $color-base;
   border-radius: 50%;
 
-  &.user-online {
+  &.online {
     background-color: $color-all-right;
   }
 
-  &.user-offline {
+  &.offline {
     background-color: $color-error;
   }
 }
@@ -41,10 +47,10 @@
   text-align: center;
 }
 
-.user-online {
+.online {
   color: $color-all-right;
 }
 
-.user-offline {
+.offline {
   color: $color-error;
 }
