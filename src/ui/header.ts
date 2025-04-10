@@ -1,6 +1,7 @@
 import createElement from '../create/create_element';
 import createHeaderLogo from './logo';
 import createHeaderBtns from './header_btns';
+import { user } from '../constants/variables';
 
 function createHeader(): HTMLElement {
   const header: HTMLElement = createElement({ tag: 'header', classes: ['header'] });
@@ -12,10 +13,15 @@ function createHeader(): HTMLElement {
   });
 
   const logo: HTMLElement = createHeaderLogo();
+  const userName: HTMLElement = createElement({
+    tag: 'h4',
+    classes: ['header-user-name'],
+    text: `${user.login ?? ''}`,
+  });
 
   const btns: HTMLElement = createHeaderBtns();
 
-  wrapper.append(logo, btns);
+  wrapper.append(logo, userName, btns);
 
   return header;
 }
