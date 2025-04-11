@@ -1,7 +1,4 @@
-import { searchValue } from '../constants/variables';
-
 function searchUserInUserList(inputValue: string): void {
-  searchValue.value = inputValue;
   const users: NodeListOf<Element> = document.querySelectorAll('.user');
 
   if (users.length > 0) {
