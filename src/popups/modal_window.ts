@@ -5,6 +5,13 @@ import closeDialog from '../utils/close_dialog';
 
 function createModalWindow(errorText: string): void {
   const body: HTMLElement = document.body;
+
+  const isExistDialog: Element | null = document.querySelector('.modal-window');
+  if (isExistDialog && isExistDialog instanceof HTMLDialogElement) {
+    isExistDialog.showModal();
+    return;
+  }
+
   const dialog: HTMLDialogElement = createDialogElement({
     classes: ['modal-window', 'modal-error'],
   });
@@ -16,22 +23,21 @@ function createModalWindow(errorText: string): void {
     parent: dialog,
   });
 
-  const btnCancel: HTMLButtonElement = createButton({
+  createButton({
     classes: ['btn', 'btn-error'],
     text: 'Ok',
+    onClick: () => closeDialog(dialog),
     parent: dialog,
   });
 
-  btnCancel.addEventListener('click', function (event: MouseEvent) {
-    event.preventDefault();
-    closeDialog(dialog);
-  });
-
-  document.addEventListener('keydown', (event: KeyboardEvent) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       closeDialog(dialog);
+      document.removeEventListener('keydown', handleKeyDown);
     }
-  });
+  };
+
+  document.addEventListener('keydown', handleKeyDown);
 
   body.append(dialog);
   dialog.showModal();
