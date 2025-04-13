@@ -3,11 +3,16 @@ import createPageAbout from '../pages/about';
 import addRoutePath from './add_route_path';
 import { user } from '../constants/variables';
 import createPageMain from '../pages/main';
+import createPageError from '../pages/404';
 
 function changePage(): void {
   const hash: string = window.location.hash;
 
-  if (hash === '' || (hash === '#/login' && !user.isLogined)) {
+  if (
+    (hash === '' && !user.isLogined) ||
+    (hash === '#/' && !user.isLogined) ||
+    (hash === '#/login' && !user.isLogined)
+  ) {
     createPageLogin();
     addRoutePath('#/login');
   } else if (hash === '#/login' && user.isLogined) {
@@ -20,7 +25,7 @@ function changePage(): void {
   } else if (hash === '#/about') {
     createPageAbout();
   } else {
-    console.log('Error hash path');
+    createPageError();
   }
 }
 
