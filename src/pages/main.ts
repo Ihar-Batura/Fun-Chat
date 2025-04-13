@@ -20,13 +20,6 @@ function createPageMain(): void {
     parent: main,
   });
 
-  createElement({
-    tag: 'h4',
-    classes: ['main-page-user-name'],
-    text: 'User name:',
-    parent: mainWrapper,
-  });
-
   const chatContainer = createChatContainer();
   mainWrapper.append(chatContainer);
 
