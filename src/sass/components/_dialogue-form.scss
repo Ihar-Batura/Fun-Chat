@@ -20,6 +20,12 @@
     background-color: $color-btn-bg-hover;
     outline: 1px solid $color-background;
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: $color-btn-bg-hover;
+  }
 }
 
 .user-dialogue-form-button {
@@ -33,5 +39,21 @@
 
   &:hover {
     border: 2px solid $color-background;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: $color-btn-bg-hover;
+
+    &:hover {
+      border: 2px solid transparent;
+    }
+  }
+}
+
+@media (width < 550px) {
+  .user-dialogue-form-input {
+    font-size: 14px;
   }
 }

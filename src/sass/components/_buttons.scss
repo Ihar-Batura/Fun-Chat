@@ -22,5 +22,11 @@
 
   &:active {
     color: $color-btn-click;
+    background-color: $color-btn-bg-hover;
+  }
+
+  &.active {
+    color: $color-btn-hover;
+    background-color: $color-btn-bg-hover;
   }
 }

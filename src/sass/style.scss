@@ -4,6 +4,11 @@
 @use 'base/base' as *;
 @use 'base/text' as *;
 
+@use 'components/buttons' as *;
+@use 'components/user' as *;
+@use 'components/dialogue-form' as *;
+@use 'components/message' as *;
+
 @use 'layout/header' as *;
 @use 'layout/main' as *;
 @use 'layout/wrapper' as *;
@@ -12,8 +17,4 @@
 @use 'layout/footer' as *;
 @use 'layout/popup' as *;
 @use 'layout/main-page' as *;
-
-@use 'components/buttons' as *;
-@use 'components/user' as *;
-@use 'components/dialogue-form' as *;
-@use 'components/message' as *;
+@use 'layout/error' as *;

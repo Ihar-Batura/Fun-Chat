@@ -15,13 +15,13 @@
 }
 
 .chat-container-dialogue-container {
+  display: flex;
+  flex-direction: column;
   width: calc(65% - 5px);
 }
 
 .chat-container-users-list,
 .chat-container-dialogue-container {
-  overflow: hidden;
-
   height: calc(100dvh - 140px);
   padding: 8px;
   border: 2px solid $color-background;
@@ -49,10 +49,10 @@
 }
 
 .user-list-users-container {
-  overflow-y: auto;
-  max-height: 100%;
-
-  // нужно будет изменить цвет скролла и доделать сам скролл
+  scrollbar-color: $color-btn-bg-hover $color-btn-bg;
+  scrollbar-width: thin;
+  overflow: hidden auto;
+  max-height: calc(100% - 55px);
 }
 
 .user-dialogue-user-info {
@@ -65,18 +65,69 @@
 }
 
 .user-dialogue-content-container {
-  overflow: hidden;
+  scrollbar-color: $color-btn-bg-hover $color-btn-bg;
+  scrollbar-width: thin;
+
+  overflow-y: auto;
   display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 
   width: 100%;
-  height: calc(100% - 85px);
+  height: calc(100vh - 85px);
+  padding: 8px 0 0;
   border-bottom: 2px solid $color-background;
 
-  &.messages {
-    flex-direction: column;
-    justify-content: end;
+  text-align: center;
+}
+
+.dialogue-filler {
+  flex-grow: 1;
+}
+
+.dialogue-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.dialogue-line-line {
+  flex-grow: 1;
+  height: 1px;
+  margin: 0 10px;
+  background-color: $color-btn-hover;
+}
+
+.dialogue-line-text {
+  font-size: 12px;
+  color: $color-btn-hover;
+}
+
+@media (width < 550px) {
+  .users-list-search-input {
+    font-size: 14px;
+  }
+
+  .user-name,
+  .user-messages-info {
+    font-size: 12px;
+  }
+
+  .user-indicator {
+    width: 6px;
+    height: 6px;
+  }
+
+  .user-info-user-name {
+    font-size: 15px;
+  }
+
+  .user-info-state-connect {
+    font-size: 14px;
+  }
+
+  .chat-container-users-list,
+  .chat-container-dialogue-container {
+    padding: 8px 2px;
   }
 }

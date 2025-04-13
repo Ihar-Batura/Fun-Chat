@@ -5,7 +5,8 @@
   flex-direction: column;
   gap: 5px;
 
-  width: 70%;
+  width: 75%;
+  margin-bottom: 8px;
   padding: 4px 8px;
   border-radius: 8px;
 
@@ -42,6 +43,8 @@
   min-height: 32px;
   padding: 4px 8px;
   border-radius: 4px;
+
+  text-align: start;
 
   background-color: $color-btn-bg;
 }
@@ -83,5 +86,20 @@
   &.edited {
     margin-right: auto;
     background: url('../edited.svg') center center / contain no-repeat;
+  }
+}
+
+@media (width < 550px) {
+  .message-container {
+    width: 90%;
+  }
+
+  .message-header-name,
+  .message-header-time {
+    font-size: 11px;
+  }
+
+  .message-body-text {
+    font-size: 14px;
   }
 }

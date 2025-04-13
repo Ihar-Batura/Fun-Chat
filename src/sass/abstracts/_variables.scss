@@ -4,31 +4,13 @@ $font-additional: 'Caveat', serif;
 
 // Colors
 $color-background: #71a7f3;
-$color-logo: #344055;
-$color-text: #242f47;
-$color-btn-hover: #031844;
-$color-btn-click: #bd1111;
-$color-btn-bg: #ffffff;
-$color-btn-bg-hover: #ecf3f8;
-$color-btn-bg-click: #ffffffb3;
-$color-main-bg: #ffffffb3;
+$color-base: #344055;
+$color-btn-bg: #fff;
+$color-btn-hover: #030a1a;
+$color-btn-bg-hover: #9abed9;
 $color-error: #ff4646;
+$color-input-focus: #ddebf5;
+$color-popup-bg: #50639091;
 $color-all-right: #34f51a;
-
-$color-primary: #ff4646;
-$color-static: #ffffff;
-$color-dirty: #ecf3f8;
-
-// Padding
-$padding-wrapper: 0 20px;
-$padding-wrapper-small: 0 7px;
-
-$padding-main: 60px 82px;
-
-//Transition
-$transition: 0.5s ease-out;
-
-// color: #344055;
-// backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
-// background-color: #ffffffb3;
-//$color-background: #e8f1fe;
+$color-btn-click: #bd1111;
+$color-main-bg: #ffffffb3;
