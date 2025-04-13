@@ -1,35 +1,32 @@
-import createElement from '../functional/create/create_element'
-import { IUserInfo } from '../types/types'
+import { UserInfo } from '../types/types';
+import createElement from '../create/create_element';
 
-function createUser({
-  userIndicator,
-  userName,
-  userMessages,
-}: IUserInfo): HTMLElement {
-  const user = createElement({
+function createUser({ userIndicator, userName, userMessages }: UserInfo): HTMLElement {
+  const user: HTMLElement = createElement({
     tag: 'div',
-    classes: ['user', 'users-container__user-container'],
-  })
+    classes: ['user', 'users-container-user-container'],
+  });
 
   createElement({
     tag: 'div',
-    classes: ['user-indicator', `user-${userIndicator}`],
+    classes: ['user-indicator', `${userIndicator}`],
     parent: user,
-  })
+  });
   createElement({
     tag: 'div',
     classes: ['user-name'],
     text: `${userName}`,
     parent: user,
-  })
+  });
   createElement({
     tag: 'div',
-    classes: ['user-messages'],
+    classes: ['user-messages-info'],
+    id: `${userName}`,
     text: `${userMessages}`,
     parent: user,
-  })
+  });
 
-  return user
+  return user;
 }
 
-export default createUser
+export default createUser;
