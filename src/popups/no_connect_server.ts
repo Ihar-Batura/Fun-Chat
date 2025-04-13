@@ -3,7 +3,7 @@ import createElement from '../create/create_element';
 function createPopupNoConnectServer(): HTMLElement {
   const popup: HTMLElement = createElement({ tag: 'div', classes: ['popup', 'popup-connect'] });
 
-  const popupTextContainer = createElement({
+  const popupTextContainer: HTMLElement = createElement({
     tag: 'div',
     classes: ['popup-text-container'],
     parent: popup,
