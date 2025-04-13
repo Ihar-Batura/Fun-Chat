@@ -1,0 +1,27 @@
+@use '../abstracts/variables' as *;
+
+.error-container {
+  width: 100%;
+  max-width: 700px;
+  padding: 25px 10px 25px 15px;
+  border: 3px solid $color-background;
+  border-radius: 12px;
+
+  background-color: $color-btn-bg;
+  box-shadow: 0 0 15px 4px $color-background;
+}
+
+.error-container-title-h3 {
+  margin: 5px 0 15px;
+}
+
+.error-container-description {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.error-container-btn-return {
+  display: block;
+  margin: 10px auto;
+}
