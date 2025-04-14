@@ -1,5 +1,5 @@
 import { User } from '../types/types';
-import { selectedUser } from '../constants/variables';
+import { selectedUser, isNeedToAddNewMessageLine } from '../constants/variables';
 import createUser from '../components/user';
 import selectContact from './select_contact';
 import turnOnDialogueForm from './turn_on_dialogue_form';
@@ -26,6 +26,7 @@ function addUsersToUserList(userArray: User[]): void {
         user.addEventListener('click', () => {
           selectContact(userName, userIndicator);
           turnOnDialogueForm();
+          isNeedToAddNewMessageLine.value = true;
         });
 
         userList.append(user);
