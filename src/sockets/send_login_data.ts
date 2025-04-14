@@ -1,9 +1,7 @@
 import getLoginFormData from '../utils/get_loginform_data';
-import { FormData } from '../types/types';
-import { socketState } from '../constants/variables';
-import { UserAuthentication } from '../types/types';
+import { FormData, UserAuthentication } from '../types/types';
+import { socketState, user, socketRequestID } from '../constants/variables';
 import getUniqueID from '../utils/get_unique_ID';
-import { user, socketRequestID } from '../constants/variables';
 import saveUserLoginAndPasswordToSessionStorage from '../storage/save_user_login_and_password_to_SS';
 
 let userLogin: string;
