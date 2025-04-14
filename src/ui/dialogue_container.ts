@@ -1,5 +1,6 @@
 import createElement from '../create/create_element';
 import createDialogueForm from './dialogue_form';
+import makeMessagesAsRead from '../utils/make_messages_as_read';
 
 function createDialogueContainer(): HTMLElement {
   const container: HTMLElement = createElement({
@@ -7,7 +8,7 @@ function createDialogueContainer(): HTMLElement {
     classes: ['chat-container-dialogue-container'],
   });
 
-  const dialogueUserContainer = createElement({
+  const dialogueUserContainer: HTMLElement = createElement({
     tag: 'div',
     classes: ['user-dialogue-user-info'],
     parent: container,
@@ -16,23 +17,34 @@ function createDialogueContainer(): HTMLElement {
   createElement({
     tag: 'h4',
     classes: ['user-info-user-name'],
-    text: 'Anna',
+    text: 'No contact selected',
     parent: dialogueUserContainer,
   });
   createElement({
     tag: 'div',
-    classes: ['user-info-state-connect', 'user-offline'],
-    text: '(online)',
+    classes: ['user-info-state-connect'],
+    text: '',
     parent: dialogueUserContainer,
   });
 
-  createElement({
+  const messagesContainer: HTMLElement = createElement({
     tag: 'div',
     classes: ['user-dialogue-content-container'],
+    text: 'Select contact to start conversation',
     parent: container,
   });
 
-  const usersDialogueForm = createDialogueForm();
+  messagesContainer.addEventListener('click', (event: MouseEvent) => {
+    const target: EventTarget | null = event.target;
+    if (target instanceof HTMLElement) {
+      if (!target.classList.contains('btn')) {
+        makeMessagesAsRead();
+      }
+    }
+  });
+
+  const usersDialogueForm: HTMLElement = createDialogueForm();
+
   container.append(usersDialogueForm);
 
   return container;
