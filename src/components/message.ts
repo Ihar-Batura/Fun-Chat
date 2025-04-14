@@ -12,6 +12,7 @@ function createMessage(messageData: Message): HTMLElement {
   const isSendMessage: boolean = messageData.from === user.login;
   const date: string = transformTimeStampToDate(messageData.datetime);
   const messageId: string = messageData.id;
+  const isMessageRead: boolean = messageData.status.isReaded === true;
 
   const container: HTMLElement = createElement({
     tag: 'div',
@@ -65,6 +66,9 @@ function createMessage(messageData: Message): HTMLElement {
       parent: messageFooter,
     });
   } else {
+    if (!isMessageRead) {
+      container.classList.add('not-read');
+    }
     container.classList.add('contact-message');
     const statusEdit: string = findMessageStatus(messageData.status, true);
     if (statusEdit) {
