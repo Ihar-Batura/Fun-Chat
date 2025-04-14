@@ -7,7 +7,9 @@ function findAllNotReadMessages(): string[] | undefined {
 
   listOfMessages.forEach((el) => {
     const messageId: string = el.id;
-    arrId.push(messageId);
+    if (el.classList.value.includes('not-read')) {
+      arrId.push(messageId);
+    }
   });
 
   return arrId;
