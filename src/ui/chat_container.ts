@@ -3,13 +3,14 @@ import createUsersListContainer from './users_list_container';
 import createDialogueContainer from './dialogue_container';
 
 function createChatContainer(): HTMLElement {
-  const container = createElement({
+  const container: HTMLElement = createElement({
     tag: 'div',
     classes: ['main-page-chat-container'],
   });
 
-  const userListContainer = createUsersListContainer();
-  const dialogueContainer = createDialogueContainer();
+  const userListContainer: HTMLElement = createUsersListContainer();
+  const dialogueContainer: HTMLElement = createDialogueContainer();
+
   container.append(userListContainer, dialogueContainer);
 
   return container;
