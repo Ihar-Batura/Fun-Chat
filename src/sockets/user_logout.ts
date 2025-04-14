@@ -1,7 +1,6 @@
-import { socketState } from '../constants/variables';
+import { socketState, user, socketRequestID } from '../constants/variables';
 import { UserAuthentication } from '../types/types';
 import getUniqueID from '../utils/get_unique_ID';
-import { user, socketRequestID } from '../constants/variables';
 
 function sendUserLogoutToServer(): void {
   const userLogin: string = user.login;
