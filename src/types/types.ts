@@ -18,6 +18,7 @@ export interface CreateInput {
   min?: string;
   pattern?: string;
   addRules?: string;
+  disabled?: boolean;
   onInput?: () => void;
   parent?: HTMLElement;
 }
@@ -81,6 +82,12 @@ export interface UserInfo {
 export interface SocketRequestID {
   userAuthentication: string;
   userLogout: string;
+  allAuthenticatedUsers: string;
+  allUnauthorizedUsers: string;
+  messageHistoryWithUser: string;
+  sendMessageToUser: string;
+  deleteMessage: string;
+  editMessageText: string;
 }
 
 export interface BaseResponse {
@@ -138,6 +145,12 @@ export interface SendMessageToUserRequest extends BaseResponse {
   };
 }
 
+export interface MessageStatus {
+  isDelivered: boolean;
+  isReaded: boolean;
+  isEdited: boolean;
+}
+
 export interface SendMessageToUserResponse extends BaseResponse {
   payload: {
     message: {
@@ -146,31 +159,25 @@ export interface SendMessageToUserResponse extends BaseResponse {
       to: string;
       text: string;
       datetime: number;
-      status: {
-        isDelivered: boolean;
-        isReaded: boolean;
-        isEdited: boolean;
-      };
+      status: MessageStatus;
     };
   };
+}
+
+export interface Message {
+  id: string;
+  from: string;
+  to: string;
+  text: string;
+  datetime: number;
+  status: MessageStatus;
 }
 
 export interface ReceiveMessageFromUser {
   id: null;
   type: 'MSG_SEND';
   payload: {
-    message: {
-      id: string;
-      from: string;
-      to: string;
-      text: string;
-      datetime: number;
-      status: {
-        isDelivered: boolean;
-        isReaded: boolean;
-        isEdited: boolean;
-      };
-    };
+    message: Message;
   };
 }
 
@@ -292,4 +299,38 @@ export interface NotificationMessageDeletion extends BaseServerNotification {
       };
     };
   };
+}
+
+export type ServerResponse =
+  | UserAuthentication
+  | ServerResponseError
+  | ThirdPartyUserAuthentication
+  | GetAllUsersResponse
+  | SendMessageToUserResponse
+  | FetchMessageHistoryWithUserResponse
+  | ReceiveMessageFromUser
+  | MessageReadStatusChangeResponse
+  | MessageDeletionResponse
+  | MessageTextEditingResponse
+  | NotificationMessageTextEdit
+  | NotificationMessageDeliveryStatusChange
+  | NotificationMessageReadStatusChange
+  | NotificationMessageDeletion;
+
+export interface SearchValue {
+  value: string;
+}
+
+export interface SelectedUser {
+  name: string;
+  status: string;
+}
+
+export interface IsEditMessage {
+  id: string;
+  value: boolean;
+}
+
+export interface IsNeedToAddNewMessageLine {
+  value: boolean;
 }
