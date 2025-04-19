@@ -1,6 +1,6 @@
 import createElement from '../create/create_element';
 import createDialogueForm from './dialogue_form';
-import makeMessagesAsRead from '../utils/make_messages_as_read';
+import createMessagesContainer from './messages_container';
 
 function createDialogueContainer(): HTMLElement {
   const container: HTMLElement = createElement({
@@ -27,25 +27,10 @@ function createDialogueContainer(): HTMLElement {
     parent: dialogueUserContainer,
   });
 
-  const messagesContainer: HTMLElement = createElement({
-    tag: 'div',
-    classes: ['user-dialogue-content-container'],
-    text: 'Select contact to start conversation',
-    parent: container,
-  });
-
-  messagesContainer.addEventListener('click', (event: MouseEvent) => {
-    const target: EventTarget | null = event.target;
-    if (target instanceof HTMLElement) {
-      if (!target.classList.contains('btn')) {
-        makeMessagesAsRead();
-      }
-    }
-  });
-
+  const messagesContainer: HTMLElement = createMessagesContainer();
   const usersDialogueForm: HTMLElement = createDialogueForm();
 
-  container.append(usersDialogueForm);
+  container.append(messagesContainer, usersDialogueForm);
 
   return container;
 }
