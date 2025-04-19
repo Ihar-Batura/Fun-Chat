@@ -12,6 +12,7 @@ function workWithUserAuthenticationResponse(response: string) {
     createPageMain();
   } else if (data.type === 'ERROR') {
     user.isLogined = false;
+    user.login = '';
     const errorText: string = data.payload.error;
     createModalWindow(errorText);
     deleteUserLoginAndPasswordFromSessionStorage();
